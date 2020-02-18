@@ -26,6 +26,18 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log('App - Constructor');
+    
+  }
+
+  componentDidMount() {
+    //AJAX CALL
+    // this.setState({ movies })
+    console.log('App - Mounted') //Component is in the DOM
+  }
+
   handleDelete = counterId => {
     console.log("EVent Handler Called", counterId);
     const counters = this.state.counters.filter(c => c.id !== counterId);
@@ -52,6 +64,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('App - Rendered');
     return (
       <React.Fragment>
         <NavBar totalCounters={this.state.counters.filter(c => c.value > 0).length} />

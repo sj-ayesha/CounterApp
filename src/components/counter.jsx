@@ -32,9 +32,24 @@ class Counter extends Component {
   //     </ul>
   //   );
   // }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevProps', prevProps);
+    console.log('prevState', prevState);
+
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Ajax call and get new data from the server
+    }
+  }
+
+  componentWillUnmount() {
+    console.log('Counter - Unmount');
+    //clean up section
+  }
 
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
+    console.log('Counter - Rendered')
+
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
